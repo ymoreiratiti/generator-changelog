@@ -1,0 +1,26 @@
+{
+  "name": "generator-changelog",
+  "version": "1.0.0",
+  "description": "Helper to generate a changelog.md file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ymoreiratiti/generator-changelog"
+  },
+  "files": [
+    "app",
+    "generate"
+  ],
+  "author": "ymoreiratiti@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "git-user-name": "^2.0.0",
+    "lodash": "^4.17.11",
+    "shelljs": "^0.8.3",
+    "uniqid": "^5.0.3",
+    "yeoman-generator": "^3.1.1"
+  }
+}
