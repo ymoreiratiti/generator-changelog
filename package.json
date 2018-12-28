@@ -1,6 +1,6 @@
 {
   "name": "generator-changelog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Helper to generate a changelog.md file",
   "main": "index.js",
   "scripts": {

@@ -13,6 +13,9 @@ let version = null
 module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
+
+    this.argument('v', { type: String, required: false });
+
     mkdir('-p', unreleasedFolder);
     if (existsSync('./changelogs/archive.json')) {
       fileChangeLog = JSON.parse(readFileSync('./changelogs/archive.json'))
@@ -25,15 +28,24 @@ module.exports = class extends Generator {
       packageJson = JSON.parse(readFileSync('./package.json'))
     }
 
-    const answers = await this.prompt([
-      {
+    //
+    //  Prepare the questions
+    let lstPrompt = []
+    if (!this.options['v']) {
+      lstPrompt.push({
         type: 'input',
         name: 'version',
         message: 'Version',
         default: packageJson ? packageJson.version : undefined,
         validate: text => semver.valid(text) ? true : 'Semver invalid'
-      }
-    ]);
+      })
+    }
+
+    const defaultAnswers = {
+      version: this.options['v']
+    }
+
+    const answers = Object.assign(defaultAnswers, lstPrompt.length ? await this.prompt(lstPrompt) : {})
 
     version = answers.version;
     let releaseDate = new Date().toISOString().split('T')[0];
