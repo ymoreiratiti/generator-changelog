@@ -1,6 +1,6 @@
 {
   "name": "generator-changelog",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Helper to generate a changelog.md file",
   "main": "index.js",
   "scripts": {
@@ -18,9 +18,9 @@
   "license": "MIT",
   "dependencies": {
     "git-user-name": "^2.0.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.14",
     "shelljs": "^0.8.3",
     "uniqid": "^5.0.3",
-    "yeoman-generator": "^3.1.1"
+    "yeoman-generator": "^4.0.1"
   }
 }
